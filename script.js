@@ -15,7 +15,6 @@ const slideImage = () => {
   // Update the carousel display to show the specified image
   carousel.style.transform = `translate(-${imageIndex * 100}%)`;
 };
-
 // A function that updates the carousel display to show the next or previous image
 const updateClick = (e) => {
   // Stop the automatic slideshow
@@ -24,13 +23,9 @@ const updateClick = (e) => {
   imageIndex += e.target.id === "next" ? 1 : -1;
   slideImage(imageIndex);
   // Restart the automatic slideshow
-  autoSlide();
+
 };
 
 // Add event listeners to the navigation buttons
 buttons.forEach((button) => button.addEventListener("click", updateClick));
 
-// Add mouseover event listener to wrapper element to stop auto sliding
-wrapper.addEventListener("mouseover", () => clearInterval(intervalId));
-// Add mouseleave event listener to wrapper element to start auto sliding again
-wrapper.addEventListener("mouseleave", autoSlide);
